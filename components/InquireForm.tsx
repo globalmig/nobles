@@ -42,6 +42,11 @@ export default function InquireForm() {
 
     const onSubmitInquire = useCallback((e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        fetch('/api/inquire', {
+        method: 'POST',
+        body: JSON.stringify(inquire),
+        headers: { 'Content-Type': 'application/json' }
+    });
         alert("상담 신청이 완료되었습니다.");
         router.push("/");
     }, [inquire, router]);

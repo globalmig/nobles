@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <>
       <div className="home">
-        <MainSlide />
+        <MainSlide ref={slideRef}/>
         <div>
           <h1>품격있는 만남, <br />행복한 결혼의 시작</h1>
           <p>단순한 소개가 아닌, 진정한 인연을 찾는 여정.<br />
