@@ -23,9 +23,9 @@ export default function StoryPage() {
                             <p>
                                 {data.content}
                             </p>
-                            <div>
+                            <div className="mo">
                                 <button onClick={() => setIsOpen(data.id)}>
-                                    <Image className="mo" src="/icons/arrow_next_black.webp" alt="더보기" width={33} height={22} />
+                                    <Image src="/icons/arrow_next_black.webp" alt="더보기" width={33} height={22} />
                                 </button>
                             </div>
                         </section>

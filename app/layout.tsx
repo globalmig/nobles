@@ -12,11 +12,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Nobles',
     description: '품격있는 만남, 행복한 결혼의 시작. 단순한 소개가 아닌, 진정한 인연을 찾는 여정. 이상적인 배우자와의 만남을 위해 세심한 매칭과 전문적인 컨설팅을 제공합니다.',
-    url: 'http://nobleswed.kr/',
+    url: 'https://nobleswed.kr/',
     siteName: 'Nobles',
     images: [
       {
-        url: 'http://nobleswed.kr//images/og_image.png',
+        url: 'https://nobleswed.kr/images/og_image.png',
         width: 1200,
         height: 630,
         alt: '노블스 결혼 정보 회사',
@@ -30,11 +30,8 @@ export const metadata: Metadata = {
   }
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+
   return (
     <html lang="ko">
       <body>

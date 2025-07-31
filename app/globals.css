@@ -19,9 +19,10 @@ body {
 li {
     cursor: pointer;
     transition: 0.5s;
+    font-size: 0.9rem;
 }
 
-p{
+p {
     font-size: 0.9rem;
 }
 
@@ -144,6 +145,41 @@ button {
     display: block;
 }
 
+.more-button>a {
+    display: flex;
+    gap: 20;
+    color: #000;
+}
+
+.more-button>a>p {
+    margin: auto 0
+}
+
+.more-button>a>div {
+    position: relative;
+}
+
+.more-button>a>div> :last-child {
+    width: 50px;
+    height: 50px;
+    border: 1px solid #000;
+    border-radius: 100%;
+}
+
+.more-button>a>div>div>img {
+    position: absolute;
+    width: 25px;
+    height: auto;
+    top: 50%;
+    left: 5px;
+    transform: translate(-50%, -50%);
+    transition: 1s;
+}
+
+.more-button>a>div>div>img:hover {
+    left: 50%;
+}
+
 header {
     position: fixed;
     width: 100%;
@@ -159,7 +195,7 @@ header>div {
     padding: 20px 8%;
 }
 
-header>:last-child {
+header>div>:last-child {
     cursor: pointer;
 }
 
@@ -181,7 +217,7 @@ nav {
     height: 100vh;
     transition: 0.3s;
     z-index: 15;
-    padding: 20px 0;
+    padding: 25px 30px
 }
 
 nav.nav-open {
@@ -208,11 +244,17 @@ nav>ul {
 
 nav>ul li {
     text-align: center;
-    padding: 10px;
 }
 
 nav>ul li a {
+    display: block;
     color: #000;
+    padding: 15px;
+    width: 100%
+}
+
+nav>ul li a:hover {
+    color: #7D4717;
 }
 
 .page-layout>:first-child {
@@ -253,6 +295,137 @@ nav>ul li a {
     margin: 20px 0 50px;
 }
 
+.inquire-form>h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.inquire-form>* {
+    margin: 15px 0;
+}
+
+.inquire-form label,
+.inquire-form legend {
+    font-size: bold;
+    text-align: center;
+    width: 30%;
+    margin: auto 0;
+}
+
+.inquire-form input,
+.inquire-form select {
+    background: white;
+    border-radius: 5px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    width: 70%;
+}
+
+.inquire-form>:nth-child(3)>div {
+    width: 70%;
+}
+
+.inquire-form>:nth-child(3)>div>button {
+    width: 48%;
+    padding: 8px 30px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+}
+
+.inquire-form>:nth-child(3)>div>button.selected {
+    background: #7D4717;
+    color: white;
+    border: 1px solid #7D4717
+}
+
+.inquire-form fieldset {
+    border: 0;
+}
+
+.inquire-form fieldset>div {
+    height: 43px;
+}
+
+.inquire-form fieldset>div>:first-child {
+    width: 30%;
+    margin: auto 0;
+}
+
+.inquire-form fieldset>div>:first-child legend {
+    width: 100%;
+}
+
+.inquire-form fieldset>div>:last-child {
+    width: 70%;
+}
+
+.inquire-form fieldset>div>:last-child p {
+    font-weight: bold;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.inquire-form>:nth-last-child(2) {
+    justify-content: left;
+    margin-top: 30px;
+    gap: 20;
+}
+
+.inquire-form>:nth-last-child(2) input {
+    display: none;
+}
+
+.inquire-form>:nth-last-child(2) input+label {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    background: white;
+    border: 1px solid #ccc;
+    margin: auto 0;
+    position: relative;
+    cursor: pointer;
+}
+
+.inquire-form input[type="checkbox"]:checked+label {
+    background: #784315;
+}
+
+.inquire-form input[type="checkbox"]:checked+label::after {
+    content: "✔";
+    position: absolute;
+    bottom: -2px;
+    left: 1px;
+    color: white;
+}
+
+.inquire-form>:nth-last-child(2) p {
+    margin: 0 !important;
+}
+
+.inquire-form>:nth-last-child(2) p span {
+    margin-left: 10px;
+    border-bottom: 1px solid #000;
+}
+
+.inquire-form>:last-child {
+    text-align: center;
+}
+
+.inquire-form>:last-child button {
+    width: 70%;
+    border-radius: 40px;
+    background: #BEA38B;
+    font-weight: bold;
+    padding: 10px 30px;
+    margin-top: 30px;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+
 footer {
     background: #EFE3CF;
 }
@@ -261,6 +434,10 @@ footer ul {
     text-align: center;
     color: #50422B;
     padding: 20px 0 30px;
+}
+
+footer>ul>li a {
+    color: #50422B;
 }
 
 footer>ul,
@@ -275,7 +452,7 @@ footer>:first-child {
 
 footer ul li {
     width: 100%;
-    margin: 5px 0
+    margin: 5px 0;
 }
 
 footer>:nth-child(3) ul:first-of-type {
@@ -284,7 +461,7 @@ footer>:nth-child(3) ul:first-of-type {
 
 footer>:nth-child(3) ul:first-of-type li:first-of-type,
 footer>:nth-child(3) ul:first-of-type li:nth-of-type(2) {
-    width: 30%;
+    width: 33%;
 }
 
 footer>:nth-child(3) ul:last-of-type {
@@ -377,6 +554,16 @@ footer> :nth-child(2) {
 }
 
 @media screen and (min-width: 1366px) {
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+
     .pc {
         display: block;
     }
@@ -385,9 +572,13 @@ footer> :nth-child(2) {
         display: none;
     }
 
-    p{
-    font-size: 1rem;
-}
+    li, p {
+        font-size: 1rem;
+    }
+
+    .inner-header nav ul li a {
+        color: #000;
+    }
 
     .inner-header nav ul li a:focus {
         color: #7D4717
@@ -397,13 +588,37 @@ footer> :nth-child(2) {
         padding: 20px 0
     }
 
-    header>div>:nth-last-child(2)>div>img {
+    header>div>:first-child {
+        margin: auto 0;
+    }
+
+    header>div>:nth-last-child(2)>div>a>img {
         filter: brightness(0) invert(1);
         cursor: pointer;
     }
 
-    header>div>:nth-last-child(2)>div>a img {
+    .inner-header>div>:nth-last-child(2)>div>a>img {
+        filter: invert(0);
+    }
+
+    .inner-header>div>:nth-last-child(2)>a>div>img {
+        filter: invert(1);
+    }
+
+    .inner-header>div>:nth-last-child(2)>a>p {
+        color: #000;
+    }
+
+    header>div>:nth-last-child(2)>div {
+        position: relative;
+    }
+
+    header>div>:nth-last-child(2)>div>img {
         display: none;
+        position: absolute;
+        top: 120%;
+        left: 50%;
+        transform: translateX(-50%);
     }
 
     header>div>:nth-last-child(2) {
@@ -412,7 +627,7 @@ footer> :nth-child(2) {
     }
 
     header>div>:nth-last-child(2)>a {
-        width: 140px;
+        width: 150px;
     }
 
     header>div>:nth-last-child(2)>a div {
@@ -423,8 +638,9 @@ footer> :nth-child(2) {
         font-size: 1.2rem;
     }
 
-    .ishover {
-        display: block;
+    header>div>:nth-child(4)>div,
+    header>div>:nth-child(4)>a {
+        margin: auto 0;
     }
 
     .isHome {
@@ -440,8 +656,8 @@ footer> :nth-child(2) {
     }
 
     nav>ul li a {
-    color: white;
-}
+        color: white;
+    }
 
     nav>:first-child img {
         margin: auto 0 0 auto;
@@ -459,9 +675,14 @@ footer> :nth-child(2) {
     }
 
     nav>ul li a {
-        color: black;
+        color: white;
         font-weight: bold;
         font-size: 1.2rem;
+    }
+
+    nav>ul li a:focus {
+        color: #7D4717;
+        background: none;
     }
 
     .page-layout>:first-child {
@@ -475,6 +696,37 @@ footer> :nth-child(2) {
 
     .page-layout>:last-child {
         padding: 100px 0;
+    }
+
+    .inquire-form label,
+    .inquire-form legend {
+        width: 150px;
+        text-align: left;
+    }
+
+    .inquire-form input,
+    .inquire-form select {
+        width: 100%;
+    }
+
+    .inquire-form>:nth-child(3)>div {
+        width: 100%
+    }
+
+    .inquire-form fieldset>div>:first-child {
+        width: 120px;
+    }
+
+    .inquire-form fieldset>div>:first-child legend {
+        width: 120px;
+    }
+
+    .inquire-form fieldset>div>:last-child {
+        width: 100%;
+    }
+
+    .inquire-form>:nth-last-child(2) {
+        gap: 10;
     }
 
     footer ul {
@@ -538,6 +790,33 @@ footer> :nth-child(2) {
         padding: 30px 0;
     }
 
+    .footer-fixed form>:nth-child(2)>:last-child >input {
+        display: none;
+    }
+
+    .footer-fixed form>:nth-child(2)>:last-child >input+label {
+        display: inline-block;
+        width: 18px;
+        height: 18px;
+        background: white;
+        border: 1px solid #ccc;
+        margin: auto 0;
+        position: relative;
+        cursor: pointer;
+    }
+
+    .footer-fixed form>:nth-child(2)>:last-child> input[type="checkbox"]:checked+label {
+        background: #784315;
+    }
+
+    .footer-fixed form>:nth-child(2)>:last-child >input[type="checkbox"]:checked+label::after {
+        content: "✔";
+        position: absolute;
+        bottom: -2px;
+        left: 1px;
+        color: white;
+    }
+
     .footer-fixed> :last-child {
         background: linear-gradient(to right, #784315, #221103);
     }
@@ -555,11 +834,13 @@ footer> :nth-child(2) {
 
     .footer-fixed> :last-child>:last-child form h3 {
         font-size: 1.5rem;
+        margin: auto 0;
     }
 
     .footer-fixed> :last-child>:last-child form input {
         background: white;
         border-radius: 5px;
+        padding: 10px;
     }
 
     .footer-fixed> :last-child>:last-child form>div {
@@ -567,15 +848,21 @@ footer> :nth-child(2) {
     }
 
     .footer-fixed> :last-child>:last-child form>div>input {
-        width: 250px;
+        width: 200px;
     }
 
     .footer-fixed> :last-child>:last-child form>div>input::placeholder {
         color: #555;
     }
 
-    .footer-fixed> :last-child>:last-child form>div>div {
+    .footer-fixed> :last-child>:last-child form>div>div:first-of-type{
         width: 365px;
+    }
+
+    .footer-fixed> :last-child>:last-child form>div>div:last-of-type {
+        width: 360px;
+        justify-content: left;
+        gap: 15;
     }
 
     .footer-fixed> :last-child>:last-child form>div>div p {
@@ -587,11 +874,11 @@ footer> :nth-child(2) {
     }
 
     .footer-fixed> :last-child>:last-child form button {
-        border-radius: 20px;
+        border-radius: 100px;
         background: #EFE3CF;
         color: #171717;
+        cursor: pointer;
         width: 100px;
     }
-
 
 }

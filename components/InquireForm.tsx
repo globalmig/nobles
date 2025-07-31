@@ -1,5 +1,5 @@
 'use client';
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { ChangeEvent, FormEvent, useCallback, useState } from "react";
 import Popup from "./Popup";
 import Privacy from "./policies/Privacy";
@@ -8,6 +8,9 @@ export default function InquireForm() {
 
     const [isOpen, setIsOpen] = useState<null | 'privacy'>(null);
 
+    const pathname = usePathname();
+    const isHome = pathname === "/";
+
     const [inquire, setInquire] = useState({
         name: "",
         gender: "",
@@ -15,6 +18,7 @@ export default function InquireForm() {
         phoneFront: "010",
         phoneMiddle: "",
         phoneLast: "",
+        category: "",
         privacy: false,
     });
 
@@ -40,15 +44,71 @@ export default function InquireForm() {
         }))
     }
 
-    const onSubmitInquire = useCallback((e: FormEvent<HTMLFormElement>) => {
+    const onSubmitInquire = useCallback(async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        fetch('/api/inquire', {
-        method: 'POST',
-        body: JSON.stringify(inquire),
-        headers: { 'Content-Type': 'application/json' }
-    });
-        alert("상담 신청이 완료되었습니다.");
-        router.push("/");
+
+        const { name, year, gender, phoneFront, phoneMiddle, phoneLast, privacy } = inquire;
+
+        if (!name.trim()) {
+            alert("이름을 입력해주세요.");
+            return;
+        }
+        if (!year.trim()) {
+            alert("출생년도를 선택해주세요.");
+            return;
+        }
+        if (!gender.trim()) {
+            alert("성별을 선택해주세요.");
+            return;
+        }
+        if (!phoneFront.trim()) {
+            alert("전화번호를 입력해주세요.");
+            return;
+        }
+        if (!phoneMiddle.trim()) {
+            alert("전화번호를 입력해주세요.");
+            return;
+        }
+        if (!phoneLast.trim()) {
+            alert("전화번호를 입력해주세요.");
+            return;
+        }
+        if (!privacy) {
+            alert("개인정보 수집 및 이용 동의를 해주세요.");
+            return
+        }
+
+        const res = await fetch("/api/inquire", {
+            method: "POST",
+            body: JSON.stringify({
+                name: inquire.name,
+                gender: inquire.gender,
+                year: inquire.year,
+                phoneFront: inquire.phoneFront,
+                phoneMiddle: inquire.phoneMiddle,
+                phoneLast: inquire.phoneLast,
+                category: '무료상담신청',
+            }),
+        });
+
+        if (res.ok) {
+            alert("상담 신청이 완료되었습니다.")
+            setInquire({
+                name: "",
+                gender: "",
+                year: "",
+                phoneFront: "010",
+                phoneMiddle: "",
+                phoneLast: "",
+                category: "",
+                privacy: false,
+            })
+            router.push("/");
+        } else {
+            const err = await res.json();
+            console.log(err)
+            alert("상담 신청을 실패했습니다. 다시 시도해주세요.");
+        }
     }, [inquire, router]);
 
     const yearOptions = Array.from({ length: 2005 - 1951 + 1 }, (_, i) => 1951 + i);
@@ -56,21 +116,23 @@ export default function InquireForm() {
     return (
         <>
             <form className="inquire-form" onSubmit={onSubmitInquire}>
+                {isHome ? <h2>무료상담 신청하기</h2> : <></>}
+                <input type="hidden" id="category" name="category" value="무료상담신청" />
                 <div className="display-flex">
                     <label htmlFor="name">이름</label>
-                    <input type="text" id="name" name="name" placeholder="이름을 입력해주세요." onChange={onChangeInquire} />
+                    <input type="text" id="name" name="name" placeholder="이름을 입력해주세요." onChange={onChangeInquire} value={inquire.name} />
                 </div>
                 <div className="display-flex">
                     <label htmlFor="gender">성별</label>
                     <div className="display-flex">
-                        <button type="button" onClick={() => onClickGender('남성')}>남성</button>
-                        <button type="button" onClick={() => onClickGender('여성')}>여성</button>
+                        <button type="button" onClick={() => onClickGender('남성')} className={inquire.gender === '남성' ? 'selected' : ''}>남성</button>
+                        <button type="button" onClick={() => onClickGender('여성')} className={inquire.gender === '여성' ? 'selected' : ''}>여성</button>
                     </div>
                 </div>
                 <div className="display-flex">
                     <label htmlFor="year">출생년도</label>
-                    <select id="birthYear" name="birthYear" onChange={onChangeInquire}>
-                        <option value="">선택</option>
+                    <select id="year" name="year" onChange={onChangeInquire}>
+                        <option value={inquire.year}>선택</option>
                         {yearOptions.map(year => (
                             <option key={year} value={year}>{year} 년생</option>
                         ))}
@@ -83,24 +145,25 @@ export default function InquireForm() {
                         </div>
                         <div className="display-flex">
                             <input type="text"
-                                inputMode="numeric" id="phoneFront" name="phoneFront" placeholder="010" onChange={onChangeInquire} />
+                                inputMode="numeric" id="phoneFront" name="phoneFront" placeholder="010" onChange={onChangeInquire} value={inquire.phoneFront} />
                             <p>-</p>
                             <input type="text"
-                                inputMode="numeric" id="phoneMiddle" name="phoneMiddle" onChange={onChangeInquire} />
+                                inputMode="numeric" id="phoneMiddle" name="phoneMiddle" onChange={onChangeInquire} value={inquire.phoneMiddle} />
                             <p>-</p>
                             <input type="text"
-                                inputMode="numeric" id="phoneLast" name="phoneLast" onChange={onChangeInquire} />
+                                inputMode="numeric" id="phoneLast" name="phoneLast" onChange={onChangeInquire} value={inquire.phoneLast} />
                         </div>
                     </div>
                 </fieldset>
                 <div className="display-flex">
                     <input type="checkbox" id="privacy" name="privacy" checked={inquire.privacy} onChange={onChangeInquire} />
-                    <label htmlFor="privacy">
-                        개인정보 수집 및 이용 동의(필수) 
+                    <label htmlFor="privacy"></label>
+                    <p>
+                        개인정보 수집 및 이용 동의(필수)
                         <span onClick={() => setIsOpen('privacy')}>
                             전문보기
                         </span>
-                    </label>
+                    </p>
                 </div>
                 <div>
                     <button type="submit">신청 완료하기</button>

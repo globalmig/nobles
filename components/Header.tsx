@@ -34,9 +34,10 @@ export default function Header() {
                 <div className={`black-bg ${isOpen ? 'open-pop' : ''}`}></div>
                 <div className="display-flex pc">
                     <div onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>
-                        <Image src="/icons/icon_kakao.png" alt="카카오 채널" width={30} height={30} />
+                        <Image src="/icons/icon_kakao_link.png" alt="카카오 채널" width={120} height={35} style={{display: isHover ? "block" : "none"}}/>
                         <Link href="https://pf.kakao.com/_eKxdxbn">
-                            <Image src="/icons/icon_kakao.png" alt="카카오 채널 문의하기" className={`${isHover ? 'ishover' : ''}`} width={70} height={30} />
+                            <Image src="/icons/icon_kakao.png" alt="카카오 채널 문의하기"
+                             width={30} height={30} />
                         </Link>
                     </div>
                     <Link href="tel:02-508-1098" className="display-flex">

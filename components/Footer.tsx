@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import Image from "next/image";
 import Popup from "./Popup";
 import CompensationPolicy from "./policies/CompensationPolicy";
@@ -6,17 +6,21 @@ import Privacy from "./policies/Privacy";
 import TermsOfUse from "./policies/TermsOfUse";
 import { useState } from "react";
 import MainBottomForm from "./MainBottomForm";
+import Script from "next/script";
+import Link from "next/link";
 
 export default function Footer() {
 
     const [isOpen, setIsOpen] = useState<null | 'privacy' | 'terms' | 'compensation'>(null);
 
     return (
+        <>
         <footer>
             <ul className="display-flex-flow">
                 <li onClick={()=> setIsOpen('privacy')}>개인정보취급방침</li>
                 <li onClick={()=> setIsOpen('terms')}>이용약관</li>
                 <li onClick={()=> setIsOpen('compensation')}>보증보험에 의한 손해배상 청구 절차</li>
+                <li><Link href="/admin">관리자페이지</Link></li>
             </ul>
             <div></div>
             <div>
@@ -47,6 +51,19 @@ export default function Footer() {
                 <CompensationPolicy/>
             </Popup>
             <div className={`black-bg ${isOpen ? 'open-pop' : ''}`}></div>
+            <Script
+          src="//wsa.mig-log.com/wsalog.js"
+          strategy="afterInteractive"
+          onLoad={() => {
+            if (typeof window.wsa !== 'undefined') {
+              window.wsa.inflow("nobleswed.kr");
+              if (typeof window.wsa_do === 'function') {
+                window.wsa_do(window.wsa);
+              }
+            }
+          }}
+        />
         </footer>
+        </>
     )
 }

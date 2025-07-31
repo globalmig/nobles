@@ -9,7 +9,7 @@ export default function AboutPage() {
                     <div>
                         <h1>노블스 결혼정보회사를<br />선택해야 하는 이유</h1>
                         <div>
-                            <Image src="/images/about/about_img.webp" alt="결혼 이미지" width={584} height={602} className="pc" />
+                            <Image src="/images/about/about_img.webp" alt="결혼 이미지" width={600} height={602} className="pc" />
                             <Image src="/images/about/about_img_mo.webp" alt="결혼 이미지" width={260} height={362} className="mo" />
                         </div>
                     </div>
