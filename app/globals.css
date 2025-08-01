@@ -164,7 +164,7 @@ button {
 
 .more-button>a {
     display: flex;
-    gap: 20;
+    gap: 20px;
     color: #000;
 }
 
@@ -386,7 +386,7 @@ nav>ul li a:hover {
 .inquire-form>:nth-last-child(2) {
     justify-content: left;
     margin-top: 30px;
-    gap: 20;
+    gap: 20px;
 }
 
 .inquire-form>:nth-last-child(2) input {
@@ -553,7 +553,7 @@ footer> :nth-child(2) {
     width: 100%;
     padding: 20px;
     justify-content: center;
-    gap: 10;
+    gap: 10px;
     background: #7D4717;
 }
 
@@ -751,7 +751,7 @@ footer> :nth-child(2) {
     }
 
     .inquire-form>:nth-last-child(2) {
-        gap: 10;
+        gap: 10px;
     }
 
     footer ul {
@@ -760,7 +760,7 @@ footer> :nth-child(2) {
 
     footer>:first-child {
         justify-content: left;
-        gap: 20;
+        gap: 20px;
         padding-top: 50px;
     }
 
@@ -775,7 +775,7 @@ footer> :nth-child(2) {
 
     footer>:nth-child(3) ul:first-of-type {
         justify-content: left;
-        gap: 15;
+        gap: 15px;
     }
 
     footer>:nth-child(3) ul:first-of-type li:first-of-type,
@@ -887,11 +887,16 @@ footer> :nth-child(2) {
     .footer-fixed> :last-child>:last-child form>div>div:last-of-type {
         width: 360px;
         justify-content: left;
-        gap: 15;
+        gap: 15px;
     }
 
     .footer-fixed> :last-child>:last-child form>div>div p {
         margin: auto 0;
+    }
+
+    .footer-fixed> :last-child>:last-child form>div>div p span {
+        border-bottom: 1px solid white;
+        cursor: pointer;
     }
 
     .footer-fixed> :last-child>:last-child form>div>div input {

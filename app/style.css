@@ -1,6 +1,5 @@
 .main-slide-wrapper {
     display: block;
-    height: 900px;
 }
 
 .main-slider {
@@ -14,15 +13,19 @@
     object-fit: cover;
 }
 
-
-#fullpage::-webkit-scrollbar,
+/* #fullpage::-webkit-scrollbar,
 body::-webkit-scrollbar {
     width: 0px;
     height: 8px;
-}
+} */
 
 .home {
     position: relative;
+}
+
+.home .main-slide-wrapper,
+.home6 .main-slide-wrapper {
+    height: 900px;
 }
 
 .home>:last-child {
@@ -35,13 +38,23 @@ body::-webkit-scrollbar {
     z-index: 2;
 }
 
+.home>:last-child h1 {
+    margin-bottom: 10px;
+}
+
 .home>:last-child>div {
     margin-top: 50px;
     justify-content: left;
-    gap: 20;
+    width: 30%;
+    max-width: 50%;
+    gap: 10px;
 }
 
-.home>:last-child button {
+.home>:last-child>div>:first-child {
+    gap: 15px;
+}
+
+.slide-index>div button {
     cursor: pointer;
     border-radius: 100%;
     border: 1px solid #BABABA;
@@ -49,8 +62,21 @@ body::-webkit-scrollbar {
     height: 40px;
 }
 
-.home>:last-child button img {
+.slide-index>div button img {
     margin: 0 auto;
+    width: 20px;
+    height: auto;
+}
+
+.slide-index>div p {
+    font-family: 'Cormorant', serif !important;
+    margin: auto auto 0;
+    font-size: 1.2rem;
+}
+
+.slide-index>div p span {
+    font-family: 'Cormorant', serif !important;
+    opacity: 0.7;
 }
 
 .home2 {
@@ -78,7 +104,8 @@ body::-webkit-scrollbar {
 .home2>div>:first-child h1 {
     font-size: 2.5rem;
     font-weight: 300;
-    font-family: "maruBuri", serif !important;;
+    font-family: "maruBuri", serif !important;
+    ;
 }
 
 .home2>div>:first-child>div {
@@ -161,7 +188,7 @@ body::-webkit-scrollbar {
     position: absolute;
     left: 32%;
     top: 40px;
-    gap: 10;
+    gap: 10px;
 }
 
 .home3>:first-child>:last-child p {
@@ -321,23 +348,26 @@ body::-webkit-scrollbar {
 
 .home6>:last-child {
     position: absolute;
-    bottom: 20%;
+    top: 70%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 2;
-    width: 25%;
+    gap: 20px;
+    color: white;
+    width: 20%;
+    max-width: 400px;
+    text-align: center;
 }
 
-.home6>:last-child button {
-    cursor: pointer;
-    border-radius: 100%;
-    border: 1px solid #BABABA;
-    width: 40px;
-    height: 40px;
+.home6>:last-child>:first-child {
+    gap: 15px;
+    order: 1;
 }
 
-.home6>:last-child button img {
-    margin: 0 auto;
+.home6>:last-child>:last-child {
+    margin: auto;
+    width: 100%;
+    max-width: 100px;
 }
 
 .home7 {
@@ -407,7 +437,7 @@ body::-webkit-scrollbar {
 
 .rep-tel>div {
     justify-content: left;
-    gap: 15;
+    gap: 15px;
 }
 
 .rep-tel>div>div {
@@ -609,7 +639,7 @@ body::-webkit-scrollbar {
     border-radius: 15px;
     border: 1px solid #EFE3CF;
     padding: 40px 20px;
-    gap: 40;
+    gap: 40px;
     justify-content: left;
     margin: 10px 0;
 }
@@ -690,7 +720,7 @@ body::-webkit-scrollbar {
 
 .admin>div>ul:first-of-type {
     justify-content: left;
-    gap: 10;
+    gap: 10px;
     margin-bottom: 25px;
     font-size: 0.8rem;
 }
@@ -815,6 +845,10 @@ body::-webkit-scrollbar {
         left: 20%;
     }
 
+    .home>:last-child>div {
+        gap: 20px;
+    }
+
     .home>:last-child button {
         width: 70px;
         height: 70px;
@@ -823,6 +857,19 @@ body::-webkit-scrollbar {
     .home>:last-child h1 {
         font-size: 4rem;
         margin-bottom: 20px;
+    }
+
+    .slide-index>div button {
+        width: 70px;
+        height: 70px;
+    }
+
+    .slide-index>div button img {
+        width: 30px;
+    }
+
+    .slide-index>div p {
+        font-size: 1.5rem;
     }
 
     .home2>div>:first-child h1 {
@@ -866,7 +913,7 @@ body::-webkit-scrollbar {
         top: 60px;
     }
 
-    .home3> :first-child> :last-child div{
+    .home3> :first-child> :last-child div {
         width: 70px;
     }
 
@@ -894,7 +941,7 @@ body::-webkit-scrollbar {
     .home4 {
         width: 1280px;
         margin: 0 auto;
-        padding: 60px 0;
+        padding: 60px 0 150px;
     }
 
     .home4 .main-slider>div h3 {
@@ -907,7 +954,7 @@ body::-webkit-scrollbar {
     }
 
     .home5 {
-        padding: 120px 0 60px;
+        padding: 120px 0;
     }
 
     .home5>div {
@@ -957,11 +1004,14 @@ body::-webkit-scrollbar {
     .home6>:last-child {
         bottom: 28%;
         left: 75%;
-        width: 100px;
+    }
+
+    .home6>:last-child>:first-child {
+        order: 0;
     }
 
     .home7 {
-        padding: 250px 0 100px;
+        padding: 250px 0 120px;
     }
 
     .home7>div {
@@ -1024,7 +1074,7 @@ body::-webkit-scrollbar {
     .about>:first-child>:last-child>div section {
         margin: 30px 0;
         display: flex;
-        gap: 60;
+        gap: 60px;
     }
 
     .about>:first-child>:last-child>div section>:first-child {

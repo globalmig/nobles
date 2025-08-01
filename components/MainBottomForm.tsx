@@ -139,10 +139,7 @@ export default function MainBottomForm({ isOpen }: MainBottomFormProps) {
                                 <input type="checkbox" id="privacy2" name="privacy2" checked={simpleInquire.privacy2} onChange={onChangeInquire} />
                                 <label htmlFor="privacy2"> </label>
                                 <p>
-                                    개인정보 수집 및 이용 동의(필수)
-                                    <span onClick={() => isOpen('privacy')}>
-                                        전문보기
-                                    </span>
+                                    개인정보 수집 및 이용 동의(필수) <span onClick={() => isOpen('privacy')}>전문보기</span>
                                 </p>
                             </div>
                         </div>

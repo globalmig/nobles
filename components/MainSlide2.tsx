@@ -9,10 +9,12 @@ export interface MainSlideHandle {
   prev: () => void;
 }
 
-export default forwardRef<MainSlideHandle, unknown>(function MainSlide2(
-  _props,
-  ref
-) {
+interface MainSlideProps {
+  setSlideIndex? : (index: number) => void;
+}
+
+const MainSlide2 = forwardRef<MainSlideHandle, MainSlideProps>(
+  ({ setSlideIndex }, ref) => {
   const sliderRef = useRef<Slider>(null);
 
   useImperativeHandle(ref, () => ({
@@ -22,6 +24,10 @@ export default forwardRef<MainSlideHandle, unknown>(function MainSlide2(
 
   const handleFocusOnSlide = (currentIndex: number) => {
     if (!sliderRef.current) return;
+
+    if (setSlideIndex) {
+        setSlideIndex(currentIndex);
+      }
 
     const slides = document.querySelectorAll('.slick-slide');
     slides.forEach((slide, index) => {
@@ -43,9 +49,10 @@ export default forwardRef<MainSlideHandle, unknown>(function MainSlide2(
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 3500,
+    autoplaySpeed: 4000,
     pauseOnHover: false,
     afterChange: (current: number) => handleFocusOnSlide(current),
+    fade: true
   };
 
   return (
@@ -74,3 +81,5 @@ export default forwardRef<MainSlideHandle, unknown>(function MainSlide2(
     </Slider>
   );
 })
+
+export default MainSlide2;

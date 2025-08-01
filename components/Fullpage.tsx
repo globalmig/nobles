@@ -9,19 +9,13 @@ import { storyData } from '@/data/StoryData';
 import MainSlide2 from './MainSlide2';
 import InquireForm from './InquireForm';
 
-declare global {
-  interface Window {
-    fullpage_api?: {
-      destroy: (type?: string) => void;
-    };
-  }
-}
-
 export default function Fullpage() {
 
   const slideRef = useRef<{ next: () => void; prev: () => void }>(null);
   const sliderRef2 = useRef<Slider>(null);
   const [isHover, setIsHover] = useState<boolean>(false);
+  const [slideIndex, setSlideIndex] = useState(0);
+  const formattedIndex = (slideIndex + 1).toString().padStart(2, '0');
 
   const settings = {
     dots: true,
@@ -59,18 +53,23 @@ export default function Fullpage() {
   return (
     <div id="fullpage">
       <section className="home section">
-        <MainSlide ref={slideRef} />
+        <MainSlide ref={slideRef} setSlideIndex={setSlideIndex}/>
         <div>
           <h1>품격있는 만남, <br />행복한 결혼의 시작</h1>
           <p>단순한 소개가 아닌, 진정한 인연을 찾는 여정.<br />
             이상적인 배우자와의 만남을 위해 세심한 매칭과 전문적인 컨설팅을 제공합니다.</p>
-          <div className="display-flex">
-            <button onClick={() => slideRef.current?.prev()} className='main-arrow-prev'>
-              <Image src="/icons/arrow_prev.webp" alt="이전" width={30} height={20} />
-            </button>
-            <button onClick={() => slideRef.current?.next()} className='main-arrow-next'>
-              <Image src="/icons/arrow_next.webp" alt="다음" width={30} height={20} />
-            </button>
+          <div className="display-flex-flow slide-index">
+            <div className="display-flex">
+              <button onClick={() => slideRef.current?.prev()} className='main-arrow-prev'>
+                <Image src="/icons/arrow_prev.webp" alt="이전" width={30} height={20} />
+              </button>
+              <button onClick={() => slideRef.current?.next()} className='main-arrow-next'>
+                <Image src="/icons/arrow_next.webp" alt="다음" width={30} height={20} />
+              </button>
+            </div>
+            <div className="display-flex">
+                <p>{formattedIndex} <span>/ 03</span></p>
+            </div>
           </div>
         </div>
       </section>
@@ -219,15 +218,20 @@ export default function Fullpage() {
         </div>
       </section>
       <section className="home6 section">
-        <MainSlide2 ref={slideRef} />
-        <div className="display-flex">
-          <button onClick={() => slideRef.current?.prev()} className='main-arrow-prev'>
-            <Image src="/icons/arrow_prev.webp" alt="이전" width={30} height={20} />
-          </button>
-          <button onClick={() => slideRef.current?.next()} className='main-arrow-next'>
-            <Image src="/icons/arrow_next.webp" alt="다음" width={30} height={20} />
-          </button>
-        </div>
+        <MainSlide2 ref={slideRef} setSlideIndex={setSlideIndex}/>
+        <div className="display-flex-flow slide-index">
+            <div className="display-flex">
+              <button onClick={() => slideRef.current?.prev()} className='main-arrow-prev'>
+                <Image src="/icons/arrow_prev.webp" alt="이전" width={30} height={20} />
+              </button>
+              <button onClick={() => slideRef.current?.next()} className='main-arrow-next'>
+                <Image src="/icons/arrow_next.webp" alt="다음" width={30} height={20} />
+              </button>
+            </div>
+            <div className="display-flex">
+                <p>{formattedIndex} <span>/ 03</span></p>
+            </div>
+          </div>
       </section>
       <section className='home7 section'>
         <div className='display-flex-flow'>
