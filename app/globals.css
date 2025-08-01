@@ -1,5 +1,6 @@
 @charset "UTF-8";
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300..700;1,300..700&display=swap');
 
 * {
     margin: 0;
@@ -9,6 +10,22 @@
     word-break: keep-all;
     outline: 0px solid silver;
     font-family: 'Noto Sans KR', sans-serif;
+}
+
+@font-face {
+  font-family: 'Cormorant';
+  src: url('https://fonts.gstatic.com/s/cormorant/v17/H4cgBXOCl9bbnla_nHIq6pY.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'maruBuri';
+  src: url('/MaruBuri-Light.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
 
 body {
