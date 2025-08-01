@@ -1,5 +1,6 @@
 .main-slide-wrapper {
     display: block;
+    height: 900px;
 }
 
 .main-slider {
@@ -13,30 +14,12 @@
     object-fit: cover;
 }
 
-/*
-#fullpage {
-    height: 100vh;
-    overflow-x: hidden;
-    overflow-y: scroll;
-    scroll-snap-type: y mandatory;
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
-}
-    */
 
 #fullpage::-webkit-scrollbar,
 body::-webkit-scrollbar {
     width: 0px;
     height: 8px;
 }
-
-/*
-.section {
-    min-height: 100vh;
-    height: auto;
-    scroll-snap-align: start;
-}
-    */
 
 .home {
     position: relative;
@@ -95,6 +78,7 @@ body::-webkit-scrollbar {
 .home2>div>:first-child h1 {
     font-size: 2.5rem;
     font-weight: 300;
+    font-family: "maruBuri", serif !important;;
 }
 
 .home2>div>:first-child>div {
@@ -175,9 +159,14 @@ body::-webkit-scrollbar {
     height: 20px;
     width: auto;
     position: absolute;
-    left: 28%;
+    left: 32%;
     top: 40px;
     gap: 10;
+}
+
+.home3>:first-child>:last-child p {
+    font-family: 'Cormorant', serif !important;
+    font-style: italic;
 }
 
 .home3> :first-child> :last-child div {
@@ -413,7 +402,7 @@ body::-webkit-scrollbar {
 .rep-tel {
     width: 100%;
     margin: 50 auto 0;
-    color: #F1D7B3;
+    color: #e9c385;
 }
 
 .rep-tel>div {
@@ -431,6 +420,8 @@ body::-webkit-scrollbar {
 
 .rep-tel h1 {
     font-size: 4.5rem;
+    font-family: 'Cormorant', serif !important;
+    font-weight: 300;
 }
 
 .about>:first-child {
@@ -774,6 +765,18 @@ body::-webkit-scrollbar {
     font-size: 1rem;
 }
 
+.no-inquire {
+    height: 150px;
+    position: relative;
+}
+
+.no-inquire p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 .pagination {
     width: 80%;
     margin: 40px auto 0;
@@ -855,6 +858,20 @@ body::-webkit-scrollbar {
 
     .home3 {
         padding: 120px 0 60px;
+    }
+
+    .home3> :first-child> :last-child {
+        height: 40px;
+        left: 37%;
+        top: 60px;
+    }
+
+    .home3> :first-child> :last-child div{
+        width: 70px;
+    }
+
+    .home3>:first-child>:last-child p {
+        font-size: 1.5rem;
     }
 
     .home3> :last-child> :first-child {

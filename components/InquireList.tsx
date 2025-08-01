@@ -40,7 +40,7 @@ export default function InquireList({ inquireData, dataCount, dataPerPage, start
                     <InquireItem key={data._id} data={data} category={category} index={dataCount - ((startPage - 1) * dataPerPage + idx)} />
                 )
             ) : (
-                <li className="no-inquire">문의가 존재하지 않습니다.</li>
+                <li className="no-inquire"><p>문의가 존재하지 않습니다.</p></li>
             )}
         </ul>
     )
