@@ -52,7 +52,8 @@ const MainSlide2 = forwardRef<MainSlideHandle, MainSlideProps>(
     autoplaySpeed: 4000,
     pauseOnHover: false,
     afterChange: (current: number) => handleFocusOnSlide(current),
-    fade: true
+    fade: true,
+    arrows: false
   };
 
   return (

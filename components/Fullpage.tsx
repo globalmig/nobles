@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import MainSlide from './MainSlide';
 import Image from 'next/image';
 import Slider from 'react-slick';
@@ -20,6 +20,7 @@ export default function Fullpage() {
   const settings = {
     dots: true,
     infinite: true,
+    arrows: false,
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
@@ -36,23 +37,9 @@ export default function Fullpage() {
     ]
   };
 
-  useEffect(() => {
-    const section = document.querySelector('.home4') as HTMLElement;
-    if (section) {
-      const windowHeight = window.innerHeight;
-      const sectionHeight = section.scrollHeight;
-
-      if (sectionHeight < windowHeight) {
-        section.style.minHeight = '100vh';
-      } else {
-        section.style.minHeight = 'auto';
-      }
-    }
-  }, []);
-
   return (
     <div id="fullpage">
-      <section className="home section">
+      <section className="home section" id='section1'>
         <MainSlide ref={slideRef} setSlideIndex={setSlideIndex}/>
         <div>
           <h1>품격있는 만남, <br />행복한 결혼의 시작</h1>
@@ -73,7 +60,7 @@ export default function Fullpage() {
           </div>
         </div>
       </section>
-      <section className="home2 section">
+      <section className="home2 section" id='section2'>
         <div>
           <div>
             <h1>노블스 결혼</h1>
@@ -97,7 +84,7 @@ export default function Fullpage() {
           </div>
         </div>
       </section>
-      <section className="home3 section">
+      <section className="home3 section" id='section3'>
         <div className='display-flex'>
           <div>
             <Image src="/images/home3_img.webp" alt='' width={400} height={486} />
@@ -128,7 +115,7 @@ export default function Fullpage() {
           </div>
         </div>
       </section>
-      <section className="home4 section">
+      <section className="home4 section" id='section4'>
         <div>
           <h1>노블스만의 특별한 성혼 스토리</h1>
           <p>노블스에서 이어진 수 많은 사랑이야기를 통해서<br />노블스의 특별함을 확인해보세요</p>
@@ -178,7 +165,7 @@ export default function Fullpage() {
           </Link>
         </div>
       </section>
-      <section className="home5 section">
+      <section className="home5 section" id='section5'>
         <div className='display-flex-flow'>
           <div>
             <div>
@@ -217,7 +204,7 @@ export default function Fullpage() {
           </div>
         </div>
       </section>
-      <section className="home6 section">
+      <section className="home6 section" id='section6'>
         <MainSlide2 ref={slideRef} setSlideIndex={setSlideIndex}/>
         <div className="display-flex-flow slide-index">
             <div className="display-flex">
@@ -233,7 +220,7 @@ export default function Fullpage() {
             </div>
           </div>
       </section>
-      <section className='home7 section'>
+      <section className='home7 section' id='section7'>
         <div className='display-flex-flow'>
           <div>
             <h1>당신의 소중한 인연을 위한 첫걸음<br />지금, 노블스와 상담하세요</h1>

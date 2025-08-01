@@ -1,7 +1,3 @@
-.main-slide-wrapper {
-    display: block;
-}
-
 .main-slider {
     position: relative;
     overflow: hidden;
@@ -13,11 +9,50 @@
     object-fit: cover;
 }
 
-/* #fullpage::-webkit-scrollbar,
-body::-webkit-scrollbar {
-    width: 0px;
+.main-slide-wrapper .slick-slider .slick-arrow {
+    display: none !important;
+}
+
+#fullpage::-webkit-scrollbar {
+  display: none;
+}
+
+#fullpage {
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.section {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+.scroll-button {
+    position: fixed;
+    top: 50%;
+    right: 8%;
+    transform: translate(0%,-50%);
+}
+
+.scroll-button> button:focus {
+    background: none;
+    border: 1px solid #ddd;
+}
+
+.scroll-button> button {
+    cursor: pointer;
+    display: block;
+    background: #ddd;
+    opacity: 0.7;
+    border-radius: 100%;
+    width: 8px;
     height: 8px;
-} */
+    margin: 20px 0;
+}
 
 .home {
     position: relative;
@@ -125,8 +160,7 @@ body::-webkit-scrollbar {
 }
 
 .home2>div>:last-child {
-    width: 90%;
-    margin: 0 auto;
+    width: 100%;
 }
 
 .home2>div>:last-child section {
@@ -135,6 +169,7 @@ body::-webkit-scrollbar {
 
 .home2>div>:last-child section>div {
     transform: rotate(45deg);
+    transform-origin: center center;
     border: 1px solid #F1D7B3;
     width: 90px;
     height: 90px;
@@ -354,14 +389,16 @@ body::-webkit-scrollbar {
     z-index: 2;
     gap: 20px;
     color: white;
-    width: 20%;
-    max-width: 400px;
+    width: 25%;
+    max-width: 300px;
     text-align: center;
 }
 
 .home6>:last-child>:first-child {
     gap: 15px;
     order: 1;
+    width: 100%;
+    max-width: 160px;
 }
 
 .home6>:last-child>:last-child {
@@ -449,7 +486,7 @@ body::-webkit-scrollbar {
 }
 
 .rep-tel h1 {
-    font-size: 4.5rem;
+    font-size: 3rem;
     font-family: 'Cormorant', serif !important;
     font-weight: 300;
 }
@@ -678,7 +715,7 @@ body::-webkit-scrollbar {
     font-weight: 400;
     font-size: 1rem;
     position: absolute;
-    top: 50%;
+    top: 48%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
@@ -892,6 +929,7 @@ body::-webkit-scrollbar {
 
     .home2>div>:last-child {
         width: 520px;
+        margin: 0 auto;
     }
 
     .home2>div>:last-child section>div {

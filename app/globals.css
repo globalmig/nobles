@@ -418,6 +418,8 @@ nav>ul li a:hover {
 
 .inquire-form>:nth-last-child(2) p {
     margin: 0 !important;
+    text-align: left !important;
+    font-size: 0.8rem;
 }
 
 .inquire-form>:nth-last-child(2) p span {

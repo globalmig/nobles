@@ -52,17 +52,20 @@ export default function Footer() {
             </Popup>
             <div className={`black-bg ${isOpen ? 'open-pop' : ''}`}></div>
             <Script
-          src="//wsa.mig-log.com/wsalog.js"
-          strategy="afterInteractive"
-          onLoad={() => {
-            if (typeof window.wsa !== 'undefined') {
-              window.wsa.inflow("nobleswed.kr");
-              if (typeof window.wsa_do === 'function') {
-                window.wsa_do(window.wsa);
-              }
-            }
-          }}
-        />
+                    src="//wsa.mig-log.com/wsalog.js"
+                    type="text/javascript"
+                    strategy="beforeInteractive"
+                />
+                <Script
+                    id="wsa-init"
+                    strategy="afterInteractive"
+                    dangerouslySetInnerHTML={{
+                        __html: `
+            wsa.inflow("nobleswed.kr");
+            wsa_do(wsa);
+          `
+                    }}
+                />
         </footer>
         </>
     )
