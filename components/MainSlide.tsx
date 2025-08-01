@@ -70,4 +70,5 @@ const MainSlide = forwardRef<MainSlideHandle, MainSlideProps>(
   );
 })
 
+MainSlide.displayName = 'MainSlide';
 export default MainSlide;
