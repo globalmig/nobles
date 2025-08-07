@@ -52,10 +52,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           }
         `}
         </Script>
-        <Script
-          src="//wsa.mig-log.com/wsalog.js"
-          strategy="afterInteractive"
-        />
         {children}
         <Footer />
       </body>
