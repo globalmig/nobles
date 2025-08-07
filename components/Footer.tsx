@@ -61,11 +61,9 @@ export default function Footer() {
                     strategy="afterInteractive"
                     dangerouslySetInnerHTML={{
                         __html: `
-      if (typeof wsa !== 'undefined') {
-        wsa.inflow("nobleswed.kr");
-        wsa_do(wsa);
-      }
-    `,
+            wsa.inflow("nobleswed.kr");
+            wsa_do(wsa);
+          `
                     }}
                 />
             </footer>
