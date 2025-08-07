@@ -53,7 +53,8 @@ export default function Footer() {
                 <div className={`black-bg ${isOpen ? 'open-pop' : ''}`}></div>
                 <Script
                     src="//wsa.mig-log.com/wsalog.js"
-                    strategy="afterInteractive"
+                    type="text/javascript"
+                    strategy="beforeInteractive"
                 />
                 <Script
                     id="wsa-init"
