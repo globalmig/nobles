@@ -13,19 +13,19 @@
 }
 
 @font-face {
-  font-family: 'Cormorant';
-  src: url('https://fonts.gstatic.com/s/cormorant/v17/H4cgBXOCl9bbnla_nHIq6pY.woff2') format('woff2');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
+    font-family: 'Cormorant';
+    src: url('https://fonts.gstatic.com/s/cormorant/v17/H4cgBXOCl9bbnla_nHIq6pY.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
-  font-family: 'maruBuri';
-  src: url('/MaruBuri-Light.otf') format('opentype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
+    font-family: 'maruBuri';
+    src: url('/MaruBuri-Light.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
 }
 
 body {
@@ -155,7 +155,7 @@ button {
     height: 100vh;
     background-color: black;
     opacity: 0.5;
-    z-index: 10;
+    z-index: 1;
 }
 
 .open-pop {
@@ -202,7 +202,7 @@ header {
     width: 100%;
     top: 0;
     left: 0;
-    z-index: 15;
+    z-index: 20;
 }
 
 header>div {
@@ -233,7 +233,7 @@ nav {
     width: 200px;
     height: 100vh;
     transition: 0.3s;
-    z-index: 15;
+    z-index: 22;
     padding: 25px 30px
 }
 
@@ -590,8 +590,14 @@ footer> :nth-child(2) {
         display: none;
     }
 
-    li, p {
+    li,
+    p {
         font-size: 1rem;
+    }
+
+    .home-header {
+        background: transparent;
+        border-bottom: 0px;
     }
 
     .inner-header nav ul li a {
@@ -741,8 +747,8 @@ footer> :nth-child(2) {
     }
 
     .inquire-form fieldset>div {
-    height: 53px;
-}
+        height: 53px;
+    }
 
     .inquire-form fieldset>div>:last-child {
         width: 100%;
@@ -817,11 +823,11 @@ footer> :nth-child(2) {
         padding: 30px 0;
     }
 
-    .footer-fixed form>:nth-child(2)>:last-child >input {
+    .footer-fixed form>:nth-child(2)>:last-child>input {
         display: none;
     }
 
-    .footer-fixed form>:nth-child(2)>:last-child >input+label {
+    .footer-fixed form>:nth-child(2)>:last-child>input+label {
         display: inline-block;
         width: 18px;
         height: 18px;
@@ -832,11 +838,11 @@ footer> :nth-child(2) {
         cursor: pointer;
     }
 
-    .footer-fixed form>:nth-child(2)>:last-child> input[type="checkbox"]:checked+label {
+    .footer-fixed form>:nth-child(2)>:last-child>input[type="checkbox"]:checked+label {
         background: #784315;
     }
 
-    .footer-fixed form>:nth-child(2)>:last-child >input[type="checkbox"]:checked+label::after {
+    .footer-fixed form>:nth-child(2)>:last-child>input[type="checkbox"]:checked+label::after {
         content: "✔";
         position: absolute;
         bottom: -2px;
@@ -882,7 +888,7 @@ footer> :nth-child(2) {
         color: #555;
     }
 
-    .footer-fixed> :last-child>:last-child form>div>div:first-of-type{
+    .footer-fixed> :last-child>:last-child form>div>div:first-of-type {
         width: 365px;
     }
 

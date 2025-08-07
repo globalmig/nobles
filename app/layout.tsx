@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import Script from "next/script";
 
 export const metadata: Metadata = {
   title: "Nobles",
@@ -35,9 +36,28 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="ko">
       <body>
-        <Header/>
+        <Header />
+        <Script
+          src="//wcs.naver.net/wcslog.js"
+          strategy="afterInteractive"
+        />
+        <Script id="wcs-analytics" strategy="afterInteractive">
+          {`
+          if (!wcs_add) var wcs_add = {};
+          wcs_add["wa"] = "s_20e6c014d57c";
+          if (!_nasa) var _nasa = {};
+          if (window.wcs) {
+            wcs.inflow();
+            wcs_do();
+          }
+        `}
+        </Script>
+        <Script
+          src="//wsa.mig-log.com/wsalog.js"
+          strategy="afterInteractive"
+        />
         {children}
-        <Footer/>
+        <Footer />
       </body>
     </html>
   );

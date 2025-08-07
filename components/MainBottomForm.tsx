@@ -76,6 +76,18 @@ export default function MainBottomForm({ isOpen }: MainBottomFormProps) {
 
         if (res.ok) {
             alert("상담 신청이 완료되었습니다.")
+
+            if (typeof window !== 'undefined' && window.wcs) {
+                if (!window.wcs_add) window.wcs_add = {};
+                window.wcs_add['wa'] = 's_20e6c014d57c';
+                const _conv = { type: 'lead' };
+                window.wcs.trans?.(_conv);
+            }
+
+            if (typeof window !== 'undefined' && window.wsa) {
+                window.wsa.cnv('4', 1000, 'UQVHsFC');
+            }
+
             setSimpleInquire({
                 name: "",
                 phoneFront: "010",
@@ -92,6 +104,15 @@ export default function MainBottomForm({ isOpen }: MainBottomFormProps) {
         }
     }, [simpleInquire, router]);
 
+    const onClickTopButton = () => {
+    const container = document.querySelector('#fullpage');
+    if (container) {
+      container.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
     return (
         <div className="footer-fixed">
             <div>
@@ -100,7 +121,7 @@ export default function MainBottomForm({ isOpen }: MainBottomFormProps) {
                         <Image src="/icons/icon_kakao.png" alt="카카오채널 문의" width={30} height={30} />
                     </Link>
                 </button>
-                <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+                <button onClick={onClickTopButton}>
                     <Image src="/icons/icon_up.png" alt="맨위로 이동" width={22} height={30} />
                 </button>
             </div>

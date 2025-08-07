@@ -2,7 +2,7 @@
 
 import Slider from 'react-slick';
 import Image from 'next/image';
-import { forwardRef, useEffect, useImperativeHandle, useRef } from 'react';
+import { forwardRef, useCallback, useEffect, useImperativeHandle, useRef } from 'react';
 
 export interface MainSlideHandle {
   next: () => void;
@@ -17,30 +17,38 @@ const MainSlide2 = forwardRef<MainSlideHandle, MainSlideProps>(
   ({ setSlideIndex }, ref) => {
   const sliderRef = useRef<Slider>(null);
 
-  useImperativeHandle(ref, () => ({
-    next: () => sliderRef.current?.slickNext(),
-    prev: () => sliderRef.current?.slickPrev(),
+ useImperativeHandle(ref, () => ({
+    next: () => {
+        if (sliderRef.current) {
+          sliderRef.current.slickNext();
+        }
+      },
+      prev: () => {
+        if (sliderRef.current) {
+          sliderRef.current.slickPrev();
+        }
+      },
   }));
 
-  const handleFocusOnSlide = (currentIndex: number) => {
-    if (!sliderRef.current) return;
+    const onAfterChange = (current: number) => {
+      if (setSlideIndex) setSlideIndex(current);
 
-    if (setSlideIndex) {
-        setSlideIndex(currentIndex);
-      }
+      const slides = document.querySelectorAll('.slick-slide');
+      slides.forEach((slide, index) => {
+        (slide as HTMLElement).setAttribute(
+          'tabindex',
+          index === current ? '0' : '-1'
+        );
+      });
+    };
 
-    const slides = document.querySelectorAll('.slick-slide');
-    slides.forEach((slide, index) => {
-      (slide as HTMLElement).setAttribute(
-        'tabindex',
-        index === currentIndex ? '0' : '-1'
-      );
-    });
-  };
-
-  useEffect(() => {
-    handleFocusOnSlide(0);
-  }, []);
+    useEffect(() => {
+      const slides = document.querySelectorAll('.slick-slide');
+      slides.forEach((slide, index) => {
+        (slide as HTMLElement).setAttribute('tabindex', index === 0 ? '0' : '-1');
+      });
+      if (setSlideIndex) setSlideIndex(0);
+    }, [setSlideIndex]);
 
   const settings = {
     dots: false,
@@ -51,7 +59,7 @@ const MainSlide2 = forwardRef<MainSlideHandle, MainSlideProps>(
     autoplay: true,
     autoplaySpeed: 4000,
     pauseOnHover: false,
-    afterChange: (current: number) => handleFocusOnSlide(current),
+    afterChange: onAfterChange,
     fade: true,
     arrows: false
   };

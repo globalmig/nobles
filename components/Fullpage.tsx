@@ -9,13 +9,21 @@ import { storyData } from '@/data/StoryData';
 import MainSlide2 from './MainSlide2';
 import InquireForm from './InquireForm';
 
+export interface MainSlideHandle {
+  next: () => void;
+  prev: () => void;
+}
+
 export default function Fullpage() {
 
-  const slideRef = useRef<{ next: () => void; prev: () => void }>(null);
+  const slideRef = useRef<MainSlideHandle>(null);
   const sliderRef2 = useRef<Slider>(null);
+  const slideRef3 = useRef<MainSlideHandle>(null);
   const [isHover, setIsHover] = useState<boolean>(false);
   const [slideIndex, setSlideIndex] = useState(0);
-  const formattedIndex = (slideIndex + 1).toString().padStart(2, '0');
+  const [slideIndex3, setSlideIndex3] = useState(0);
+  const formattedIndex = `0${slideIndex + 1}`;
+  const formattedIndex3 = `0${slideIndex3 + 1}`;
 
   const settings = {
     dots: true,
@@ -205,18 +213,18 @@ export default function Fullpage() {
         </div>
       </section>
       <section className="home6 section" id='section6'>
-        <MainSlide2 ref={slideRef} setSlideIndex={setSlideIndex}/>
+        <MainSlide2 ref={slideRef3} setSlideIndex={setSlideIndex3}/>
         <div className="display-flex-flow slide-index">
             <div className="display-flex">
-              <button onClick={() => slideRef.current?.prev()} className='main-arrow-prev'>
+              <button onClick={() => slideRef3.current?.prev()} className='main-arrow-prev'>
                 <Image src="/icons/arrow_prev.webp" alt="이전" width={30} height={20} />
               </button>
-              <button onClick={() => slideRef.current?.next()} className='main-arrow-next'>
+              <button onClick={() => slideRef3.current?.next()} className='main-arrow-next'>
                 <Image src="/icons/arrow_next.webp" alt="다음" width={30} height={20} />
               </button>
             </div>
             <div className="display-flex">
-                <p>{formattedIndex} <span>/ 03</span></p>
+                <p>{formattedIndex3} <span>/ 03</span></p>
             </div>
           </div>
       </section>

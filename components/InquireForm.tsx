@@ -92,7 +92,18 @@ export default function InquireForm() {
         });
 
         if (res.ok) {
-            alert("상담 신청이 완료되었습니다.")
+            alert("상담 신청이 완료되었습니다.");
+             if (typeof window !== 'undefined' && window.wcs) {
+                if (!window.wcs_add) window.wcs_add = {};
+                window.wcs_add['wa'] = 's_20e6c014d57c';
+                const _conv = { type: 'lead' };
+                window.wcs.trans?.(_conv);
+            }
+
+            if (typeof window !== 'undefined' && window.wsa) {
+                window.wsa.cnv('4', 1000, 'UQVHsFC');
+            }
+            
             setInquire({
                 name: "",
                 gender: "",
